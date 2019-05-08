@@ -1,8 +1,35 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from "react";
+import { Text, StyleSheet } from "react-native";
 
-export class MonoText extends React.Component {
-  render() {
-    return <Text {...this.props} style={[this.props.style, { fontFamily: 'space-mono' }]} />;
+export const LogoText = props => (
+  <Text {...props} style={[props.style, styles.logoText]} />
+);
+
+export const PrimaryText = props => (
+  <Text {...props} style={[props.style, styles.primary]} />
+);
+
+export const SecondaryText = props => (
+  <Text {...props} style={[props.style, styles.secondary]} />
+);
+
+const styles = StyleSheet.create({
+  logoText: {
+    fontFamily: "Galada-regular",
+    color: "black",
+    fontSize: 32,
+    textAlign: "center"
+  },
+  primary: {
+    fontFamily: "Montserrat-regular",
+    color: "black",
+    fontSize: 22,
+    textAlign: "center"
+  },
+  secondary: {
+    fontFamily: "Montserrat-light",
+    color: "black",
+    fontSize: 12,
+    textAlign: "center"
   }
-}
+});
