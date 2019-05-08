@@ -2,8 +2,7 @@ import React from "react";
 import { StyleSheet, View, Image, Dimensions } from "react-native";
 //components
 import { LogoText, SecondaryText } from "../components/StyledText";
-
-const { width: WIDTH } = Dimensions.get("window");
+import Layout from "../constants/Layout";
 
 const Header = () => {
   return (
@@ -21,6 +20,8 @@ const Header = () => {
   );
 };
 
+const { window } = Layout;
+
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 20,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "white",
     backgroundColor: "transparent",
-    width: WIDTH,
+    width: window.width,
     marginBottom: 20
   },
   logo: {
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     height: 100
   },
   description: {
-    width: WIDTH - 90
+    width: window.width - 90
   }
 });
 

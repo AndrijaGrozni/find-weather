@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Image,
-  Dimensions,
   View,
   TextInput,
   StyleSheet,
@@ -9,8 +8,7 @@ import {
 } from "react-native";
 //components
 import { SecondaryText } from "../components/StyledText";
-
-const { width: WIDTH } = Dimensions.get("window");
+import Layout from "../constants/Layout";
 
 const Search = props => {
   return (
@@ -32,6 +30,8 @@ const Search = props => {
   );
 };
 
+const { window } = Layout;
+
 const styles = StyleSheet.create({
   container: {
     position: "relative",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     backgroundColor: "white",
-    width: WIDTH - 90,
+    width: window.width - 90,
     borderRadius: 50,
     paddingLeft: 20,
     paddingRight: 68,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   button: {
     position: "absolute",
-    left: WIDTH - 93,
+    left: window.width - 93,
     top: 36,
     height: 40,
     borderRadius: 50,
