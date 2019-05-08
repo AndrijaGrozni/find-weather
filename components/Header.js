@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, Dimensions } from "react-native";
 //components
 import { LogoText, SecondaryText } from "../components/StyledText";
+
+const { width: WIDTH } = Dimensions.get("window");
 
 const Header = () => {
   return (
@@ -11,7 +13,7 @@ const Header = () => {
         style={styles.logo}
       />
       <LogoText>FindWeatherApp</LogoText>
-      <SecondaryText>
+      <SecondaryText style={styles.description}>
         Find your local temperature, five day forecast, conditions and more
         information, fast, simple and easy!
       </SecondaryText>
@@ -21,7 +23,6 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
     paddingBottom: 20,
     display: "flex",
     flexDirection: "column",
@@ -29,12 +30,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: "white",
     backgroundColor: "transparent",
-    width: "100%",
-    marginBottom: 40
+    width: WIDTH,
+    marginBottom: 20
   },
   logo: {
     width: 100,
     height: 100
+  },
+  description: {
+    width: WIDTH - 90
   }
 });
 

@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   secondary: {
-    fontFamily: "Montserrat-light",
-    color: "white",
-    fontSize: 12,
+    fontFamily: "Montserrat-regular",
+    color: "rgba(255,255,255,0.8)",
+    fontSize: 13,
     textAlign: "center"
   }
 });
