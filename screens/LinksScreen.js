@@ -1,5 +1,7 @@
 import React from "react";
-import { ScrollView, Text, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
+//components
+import { LogoText, PrimaryText, SecondaryText } from "../components/StyledText";
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
@@ -12,7 +14,9 @@ export default class LinksScreen extends React.Component {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
-        <Text>Weather</Text>
+        <LogoText>Logo Text</LogoText>
+        <PrimaryText>Primary Text</PrimaryText>
+        <SecondaryText>Secondary Text</SecondaryText>
       </ScrollView>
     );
   }

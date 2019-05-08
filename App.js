@@ -29,15 +29,10 @@ export default class App extends React.Component {
 
   _loadResourcesAsync = async () => {
     return Promise.all([
-      // Asset.loadAsync([
-      //   require('./assets/images/robot-dev.png'),
-      //   require('./assets/images/robot-prod.png'),
-      // ]),
+      Asset.loadAsync([require("./assets/images/logo.png")]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
         "Galada-regular": require("./assets/fonts/Galada-Regular.ttf"),
         "Montserrat-regular": require("./assets/fonts/Montserrat-Regular.ttf"),
         "Montserrat-light": require("./assets/fonts/Montserrat-Light.ttf")
@@ -46,8 +41,6 @@ export default class App extends React.Component {
   };
 
   _handleLoadingError = error => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
     console.warn(error);
   };
 

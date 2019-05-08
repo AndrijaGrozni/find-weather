@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-
-import { LogoText, PrimaryText, SecondaryText } from "../components/StyledText";
+//components
+import Header from "../components/Header";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,9 +11,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <LogoText>Logo Text</LogoText>
-        <PrimaryText>Primary Text</PrimaryText>
-        <SecondaryText>Secondary Text</SecondaryText>
+        <Header />
       </View>
     );
   }
@@ -22,7 +20,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#4C86A8",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"

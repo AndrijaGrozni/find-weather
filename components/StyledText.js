@@ -16,19 +16,19 @@ export const SecondaryText = props => (
 const styles = StyleSheet.create({
   logoText: {
     fontFamily: "Galada-regular",
-    color: "black",
+    color: "white",
     fontSize: 32,
     textAlign: "center"
   },
   primary: {
     fontFamily: "Montserrat-regular",
-    color: "black",
+    color: "white",
     fontSize: 22,
     textAlign: "center"
   },
   secondary: {
     fontFamily: "Montserrat-light",
-    color: "black",
+    color: "white",
     fontSize: 12,
     textAlign: "center"
   }
