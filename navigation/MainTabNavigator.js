@@ -7,7 +7,7 @@ import {
 
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
-import LinksScreen from "../screens/LinksScreen";
+import WeatherScreen from "../screens/WeatherScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -23,11 +23,11 @@ HomeStack.navigationOptions = {
   )
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen
+const WeatherStack = createStackNavigator({
+  Weather: WeatherScreen
 });
 
-LinksStack.navigationOptions = {
+WeatherStack.navigationOptions = {
   tabBarLabel: "Weather",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -39,5 +39,5 @@ LinksStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack
+  WeatherStack
 });

@@ -2,8 +2,9 @@ import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 //components
 import Weather from "../components/Weather";
+import Forecast from "../components/Forecast";
 
-export default class LinksScreen extends React.Component {
+export default class WeatherScreen extends React.Component {
   static navigationOptions = {
     title: "Weather"
   };
@@ -15,6 +16,7 @@ export default class LinksScreen extends React.Component {
         contentContainerStyle={styles.contentContainer}
       >
         <Weather />
+        <Forecast />
       </ScrollView>
     );
   }
