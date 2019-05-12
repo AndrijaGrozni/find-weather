@@ -7,26 +7,30 @@ import {
   TouchableOpacity
 } from "react-native";
 //components
+import WeatherContext from "../context/weather-context";
 import { SecondaryText } from "../components/StyledText";
 import Layout from "../constants/Layout";
 
-const Search = props => {
+const Search = () => {
   return (
-    <View style={styles.container}>
-      <SecondaryText>Find weather for:</SecondaryText>
-      <TextInput
-        style={styles.input}
-        onChangeText={props.onChange}
-        placeholder='City name'
-      />
-      <TouchableOpacity style={styles.button} onPress={props.onPress}>
-        <Image
-          source={require("../assets/images/search.png")}
-          style={styles.image}
-        />
-      </TouchableOpacity>
-      {props.error && <SecondaryText>{props.error}</SecondaryText>}
-    </View>
+    <WeatherContext.Consumer>
+      {context => (
+        <View style={styles.container}>
+          <TextInput
+            style={styles.input}
+            onChangeText={context._onInput}
+            placeholder='City name'
+          />
+          <TouchableOpacity style={styles.button} onPress={context._getWeather}>
+            <Image
+              source={require("../assets/images/search.png")}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          {context.error && <SecondaryText>{context.error}</SecondaryText>}
+        </View>
+      )}
+    </WeatherContext.Consumer>
   );
 };
 

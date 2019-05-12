@@ -1,59 +1,57 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
 //components
 import { PrimaryText, SecondaryText } from "./StyledText";
 import IMAGES from "../constants/WeatherIcons";
+import WeatherContext from "../context/weather-context";
 
-const Weather = props => {
-  const {
-    icon,
-    city,
-    country,
-    temperature,
-    description,
-    humidity,
-    pressure,
-    windSpeed,
-    windDeg
-  } = props;
-
+const Weather = () => {
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.header}>
-        <PrimaryText style={styles.city}>
-          {city}, {country}
-        </PrimaryText>
-      </View>
-      <View style={styles.content}>
-        <View style={styles.column}>
-          <PrimaryText style={styles.temperature}>
-            {Math.round(temperature)}°
-          </PrimaryText>
+    <WeatherContext.Consumer>
+      {context => (
+        <View style={styles.wrapper}>
+          <View style={styles.header}>
+            <PrimaryText style={styles.city}>
+              {context.today.city}, {context.today.country}
+            </PrimaryText>
+          </View>
+          <View style={styles.content}>
+            <View style={styles.column}>
+              <PrimaryText style={styles.temperature}>
+                {Math.round(context.today.temperature)}°
+              </PrimaryText>
+            </View>
+            <View style={styles.column}>
+              {context.today.icon && (
+                <Image
+                  style={styles.image}
+                  source={IMAGES[context.today.icon]}
+                />
+              )}
+              <SecondaryText>{context.today.description}</SecondaryText>
+            </View>
+          </View>
+          <View style={styles.stats}>
+            <View style={styles.column}>
+              <SecondaryText style={styles.details}>
+                Humidity: <Text>{context.today.humidity}%</Text>
+              </SecondaryText>
+              <SecondaryText style={styles.details}>
+                Pressure: <Text>{context.today.pressure} hpa</Text>
+              </SecondaryText>
+            </View>
+            <View style={styles.column}>
+              <SecondaryText style={styles.details}>
+                Wind speed: <Text>{context.today.windSpeed} m/h</Text>
+              </SecondaryText>
+              <SecondaryText style={styles.details}>
+                Wind degree: <Text>{Math.round(context.today.windDeg)}</Text>
+              </SecondaryText>
+            </View>
+          </View>
         </View>
-        <View style={styles.column}>
-          {icon && <Image style={styles.icon} source={IMAGES[icon]} />}
-          <SecondaryText>{description}</SecondaryText>
-        </View>
-      </View>
-      <View style={styles.stats}>
-        <View style={styles.column}>
-          <SecondaryText style={styles.details}>
-            Humidity: <Text>{humidity}%</Text>
-          </SecondaryText>
-          <SecondaryText style={styles.details}>
-            Pressure: <Text>{pressure} hpa</Text>
-          </SecondaryText>
-        </View>
-        <View style={styles.column}>
-          <SecondaryText style={styles.details}>
-            Wind speed: <Text>{windSpeed} m/h</Text>
-          </SecondaryText>
-          <SecondaryText style={styles.details}>
-            Wind degree: <Text>{Math.round(windDeg)}</Text>
-          </SecondaryText>
-        </View>
-      </View>
-    </View>
+      )}
+    </WeatherContext.Consumer>
   );
 };
 

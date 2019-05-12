@@ -1,12 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import styled from "styled-components";
+import { View, Text, Image, StyleSheet } from "react-native";
 //shared
 import IMAGES from "../constants/WeatherIcons";
 
-const Forecast = props => {
-  const { day, description, icon, temp } = props;
-
+const Forecast = ({ day, description, icon, temperature }) => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.left}>
@@ -14,8 +11,8 @@ const Forecast = props => {
         <Text style={styles.description}>{description}</Text>
       </View>
       <View style={styles.right}>
-        {/* <Image style={styles.right} source={IMAGES[icon]} /> */}
-        <Text style={styles.temperature}>{Math.round(temp)}°</Text>
+        <Image style={styles.icon} source={IMAGES[icon]} />
+        <Text style={styles.temperature}>{Math.round(temperature)}°</Text>
       </View>
     </View>
   );

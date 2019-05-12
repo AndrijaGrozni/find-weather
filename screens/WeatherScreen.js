@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet } from "react-native";
 //components
 import Weather from "../components/Weather";
 import Forecast from "../components/Forecast";
+import WeatherContext from "../context/weather-context";
 
 export default class WeatherScreen extends React.Component {
   static navigationOptions = {
@@ -11,13 +12,23 @@ export default class WeatherScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}
-      >
-        <Weather />
-        <Forecast />
-      </ScrollView>
+      <WeatherContext.Consumer>
+        {context => (
+          <React.Fragment>
+            {context.success && (
+              <ScrollView
+                style={styles.container}
+                contentContainerStyle={styles.contentContainer}
+              >
+                <Weather />
+                {context.forecasts.map((forecast, index) => {
+                  return <Forecast key={index} {...forecast} />;
+                })}
+              </ScrollView>
+            )}
+          </React.Fragment>
+        )}
+      </WeatherContext.Consumer>
     );
   }
 }
