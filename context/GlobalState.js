@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WeatherContext from "./weather-context";
+import NavigationService from "../navigation/NavigationService";
 
 //api key
 const API_KEY = "3b74f09e6dd1ebf2775a1b1f8774bddc";
@@ -81,6 +82,7 @@ class GlobalState extends Component {
         ],
         error: null
       });
+      NavigationService.navigate("Weather");
     }
     //if imput is empty
     else {

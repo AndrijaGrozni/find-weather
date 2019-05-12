@@ -8,12 +8,10 @@ import {
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import WeatherScreen from "../screens/WeatherScreen";
-import Weather from "../components/Weather";
 
-//home page
+//home tab
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-  Weather: Weather
+  Home: HomeScreen
 });
 HomeStack.navigationOptions = {
   tabBarLabel: "Find",
@@ -25,7 +23,7 @@ HomeStack.navigationOptions = {
   )
 };
 
-//weather page
+//weather tab
 const WeatherStack = createStackNavigator({
   Weather: WeatherScreen
 });

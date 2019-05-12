@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   button: {
     position: "absolute",
     left: window.width - 93,
-    top: 36,
+    top: 20,
     height: 40,
     borderRadius: 50,
     paddingVertical: 10,
