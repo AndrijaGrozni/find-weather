@@ -33,16 +33,18 @@ const Container = styled.View`
 const Input = styled.TextInput`
   height: 50px;
   background-color: rgba(255, 255, 255, 0.95);
-  width: ${window.width - 90};
-  border-radius: 50;
+  width: ${window.width - 110};
+  border-radius: 40px;
   padding-left: 20px;
   padding-right: 68px;
   margin-top: 15px;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 const SearchButton = styled.TouchableOpacity`
   position: absolute;
-  left: ${window.width - 93};
+  left: ${window.width - 100};
   top: 20;
   height: 40px;
   border-radius: 50;

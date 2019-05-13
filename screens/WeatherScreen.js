@@ -5,6 +5,7 @@ import CurrentWeather from "../components/CurrentWeather";
 import Forecast from "../components/Forecast";
 import WeatherContext from "../context/weather-context";
 import Background from "../components/Background";
+import HourlyForecast from "../components/HourlyForecast";
 
 export default class WeatherScreen extends React.Component {
   static navigationOptions = {
@@ -18,12 +19,14 @@ export default class WeatherScreen extends React.Component {
           <Background>
             {context.success && (
               <WrapperScroll
-                contentContainerStyle={{ paddingTop: 30, paddingBottom: 50 }}
+                contentContainerStyle={{
+                  paddingTop: 30,
+                  paddingBottom: 50
+                }}
               >
                 <CurrentWeather />
-                {context.forecasts.map((forecast, index) => {
-                  return <Forecast key={index} {...forecast} />;
-                })}
+                <HourlyForecast />
+                <Forecast />
               </WrapperScroll>
             )}
           </Background>
@@ -35,6 +38,4 @@ export default class WeatherScreen extends React.Component {
 
 const WrapperScroll = styled.ScrollView`
   flex: 1;
-  padding-left: 15px;
-  padding-right: 15px;
 `;

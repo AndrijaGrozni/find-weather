@@ -1,37 +1,55 @@
 import React from "react";
 import styled from "styled-components";
+import WeatherContext from "../context/weather-context";
 //shared
+import Layout from "../constants/Layout";
 import IMAGES from "../constants/WeatherIcons";
 import Moment from "moment";
 
-const Forecast = ({ day, description, icon, temperature }) => {
+const Forecast = () => {
   Moment.locale("en");
 
   return (
-    <Wrapper>
-      <Left>
-        <Day>{Moment(day).format("dddd")}</Day>
-        <Description>{description}</Description>
-      </Left>
-      <Right>
-        <Icon source={IMAGES[icon]} />
-        <Temperature>{Math.round(temperature)}°</Temperature>
-      </Right>
-    </Wrapper>
+    <WeatherContext.Consumer>
+      {context => (
+        <Wrapper>
+          {context.forecasts.map((forecast, index) => (
+            <Box key={index}>
+              <Left>
+                <Day>{Moment(forecast.day).format("dddd")}</Day>
+                <Description>{forecast.description}</Description>
+              </Left>
+              <Right>
+                <Icon source={IMAGES[forecast.icon]} />
+                <Temperature>{Math.round(forecast.temperature)}°</Temperature>
+              </Right>
+            </Box>
+          ))}
+        </Wrapper>
+      )}
+    </WeatherContext.Consumer>
   );
 };
 
+const { window } = Layout;
+
 // styles
 const Wrapper = styled.View`
+  flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const Box = styled.View`
+  width: ${window.width - 30};
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.25);
   color: white;
-  padding: 10px 35px;
-  border-radius: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
   margin-top: 15px;
-  letter-spacing: 2px;
 `;
 
 const Day = styled.Text`
@@ -59,21 +77,21 @@ const Left = styled.View`
 
 const Right = styled.View`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   flex-direction: row;
   flex: 1;
   justify-content: space-between;
-  padding-left: 40px;
+  padding-left: 10px;
 `;
 
 const Icon = styled.Image`
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 `;
 
 const Temperature = styled.Text`
-  font-size: 32px;
+  font-size: 28px;
   color: white;
   margin-left: 10px;
 `;

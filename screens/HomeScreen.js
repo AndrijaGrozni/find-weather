@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import styled from "styled-components";
 //components
 import Header from "../components/Header";
 import Search from "../components/Search";
@@ -13,20 +14,18 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Background>
-        <View style={styles.container}>
+        <Wrapper>
           <Header />
           <Search />
-        </View>
+        </Wrapper>
       </Background>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  }
-});
+const Wrapper = styled.View`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

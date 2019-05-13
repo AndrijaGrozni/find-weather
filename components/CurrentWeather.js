@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import styled from "styled-components";
 //components
 import IMAGES from "../constants/WeatherIcons";
+import Layout from "../constants/Layout";
 import WeatherContext from "../context/weather-context";
 
 const CurrentWeather = () => {
@@ -31,18 +32,24 @@ const CurrentWeather = () => {
           <Stats>
             <Column>
               <Details>
-                Humidity: <Text>{context.today.humidity}%</Text>
+                <DetailsText>Humidity: </DetailsText>
+                <DetailsHeadline>{context.today.humidity}%</DetailsHeadline>
               </Details>
               <Details>
-                Pressure: <Text>{context.today.pressure} hpa</Text>
+                <DetailsText>Pressure: </DetailsText>
+                <DetailsHeadline>{context.today.pressure} hpa</DetailsHeadline>
               </Details>
             </Column>
             <Column>
               <Details>
-                Wind speed: <Text>{context.today.windSpeed} m/h</Text>
+                <DetailsText>Wind speed: </DetailsText>
+                <DetailsHeadline>{context.today.windSpeed} m/h</DetailsHeadline>
               </Details>
               <Details>
-                Wind degree: <Text>{Math.round(context.today.windDeg)}</Text>
+                <DetailsText>Wind degree: </DetailsText>
+                <DetailsHeadline>
+                  {Math.round(context.today.windDeg)}
+                </DetailsHeadline>
               </Details>
             </Column>
           </Stats>
@@ -52,36 +59,34 @@ const CurrentWeather = () => {
   );
 };
 
+const { window } = Layout;
+
 const Wrapper = styled.View`
   background-color: rgba(255, 255, 255, 0.25);
   color: white;
-  width: 100%;
+  width: ${window.width - 30};
   margin: 0 auto;
   text-align: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 30;
+  padding: 20px;
+  border-radius: 10px;
   display: flex;
-  height: 320px;
 `;
 
 const Header = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0 10px 0;
   width: 100%;
-  height: 100px;
   flex-direction: column;
   border-bottom-color: white;
   border-bottom-width: 1px;
+  padding-bottom: 15px;
 `;
 
 const City = styled.Text`
   font-size: 34px;
   color: white;
   font-weight: 500;
-  letter-spacing: 0.5;
 `;
 
 const Icon = styled.Image`
@@ -130,12 +135,26 @@ const Stats = styled.View`
   justify-content: flex-start;
 `;
 
-const Details = styled.Text`
-  padding-top: 5px;
-  padding-bottom: 5px;
+const Details = styled.View`
+  padding: 5px 10px 5px 15px;
   margin: 0 0 5px 0;
-  color: white;
+  flex: 1;
+  width: 100%;
   text-align: left;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+const DetailsText = styled.Text`
+  color: white;
+  margin-bottom: 2px;
+`;
+
+const DetailsHeadline = styled.Text`
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
 export default CurrentWeather;
