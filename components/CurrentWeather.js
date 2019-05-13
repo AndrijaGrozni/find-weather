@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import styled from "styled-components";
 //components
 import IMAGES from "../constants/WeatherIcons";
@@ -12,47 +11,47 @@ const CurrentWeather = () => {
       {context => (
         <Wrapper>
           <Header>
-            <City>
-              {context.today.city}, {context.today.country}
-            </City>
+            <City>{context.today.city}</City>
+            <Descritpion>{context.today.description}</Descritpion>
+            <Temperature>{Math.round(context.today.temperature)}°</Temperature>
           </Header>
           <Content>
-            <Column>
-              <Temperature>
-                {Math.round(context.today.temperature)}°
-              </Temperature>
-            </Column>
-            <Column>
+            <Column left>
               {context.today.icon && (
                 <Icon source={IMAGES[context.today.icon]} />
               )}
-              <Descritpion>{context.today.description}</Descritpion>
+            </Column>
+            <Column>
+              <Stats>
+                <Column>
+                  <Details>
+                    <DetailsText>Humidity: </DetailsText>
+                    <DetailsHeadline>{context.today.humidity}%</DetailsHeadline>
+                  </Details>
+                  <Details>
+                    <DetailsText>Pressure: </DetailsText>
+                    <DetailsHeadline>
+                      {context.today.pressure} hpa
+                    </DetailsHeadline>
+                  </Details>
+                </Column>
+                <Column>
+                  <Details>
+                    <DetailsText>Wind speed: </DetailsText>
+                    <DetailsHeadline>
+                      {context.today.windSpeed} m/h
+                    </DetailsHeadline>
+                  </Details>
+                  <Details>
+                    <DetailsText>Wind degree: </DetailsText>
+                    <DetailsHeadline>
+                      {Math.round(context.today.windDeg)}
+                    </DetailsHeadline>
+                  </Details>
+                </Column>
+              </Stats>
             </Column>
           </Content>
-          <Stats>
-            <Column>
-              <Details>
-                <DetailsText>Humidity: </DetailsText>
-                <DetailsHeadline>{context.today.humidity}%</DetailsHeadline>
-              </Details>
-              <Details>
-                <DetailsText>Pressure: </DetailsText>
-                <DetailsHeadline>{context.today.pressure} hpa</DetailsHeadline>
-              </Details>
-            </Column>
-            <Column>
-              <Details>
-                <DetailsText>Wind speed: </DetailsText>
-                <DetailsHeadline>{context.today.windSpeed} m/h</DetailsHeadline>
-              </Details>
-              <Details>
-                <DetailsText>Wind degree: </DetailsText>
-                <DetailsHeadline>
-                  {Math.round(context.today.windDeg)}
-                </DetailsHeadline>
-              </Details>
-            </Column>
-          </Stats>
         </Wrapper>
       )}
     </WeatherContext.Consumer>
@@ -87,22 +86,18 @@ const City = styled.Text`
   font-size: 34px;
   color: white;
   font-weight: 500;
-`;
-
-const Icon = styled.Image`
-  width: 60px;
-  height: 60px;
   margin-bottom: 5px;
 `;
 
+const Icon = styled.Image`
+  width: 70px;
+  height: 70px;
+`;
+
 const Content = styled.View`
-  padding: 10px 0 15px 0;
+  padding: 10px 0 0 0;
   display: flex;
   flex-direction: row;
-  height: 120px;
-  border-bottom-color: white;
-  border-bottom-width: 1px;
-  margin-bottom: 10px;
 `;
 
 const Temperature = styled.Text`
@@ -119,7 +114,7 @@ const Descritpion = styled.Text`
 `;
 
 const Column = styled.View`
-  flex: 1;
+  flex: ${props => (props.left ? "1" : "2")};
   text-align: center;
   display: flex;
   align-items: ${props => (props.stretch ? "stretch" : "center")};
@@ -136,7 +131,7 @@ const Stats = styled.View`
 `;
 
 const Details = styled.View`
-  padding: 5px 10px 5px 15px;
+  padding: 5px 0 5px 10px;
   margin: 0 0 5px 0;
   flex: 1;
   width: 100%;
@@ -153,7 +148,7 @@ const DetailsText = styled.Text`
 
 const DetailsHeadline = styled.Text`
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 `;
 

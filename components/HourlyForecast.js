@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Text } from "react-native";
 import IMAGES from "../constants/WeatherIcons";
 import WeatherContext from "../context/weather-context";
 import Moment from "moment";
@@ -35,7 +34,7 @@ const Box = styled.View`
   width: 68px;
   height: 100px;
   background-color: rgba(255, 255, 255, 0.25);
-  margin-right: 15px;
+  margin-right: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
