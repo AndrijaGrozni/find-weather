@@ -19,6 +19,7 @@ class Loader extends Component {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/logo.png"),
+        require("./assets/images/bbbb.jpg"),
         require("./assets/images/search.png"),
         require("./assets/images/icons/01d.png"),
         require("./assets/images/icons/02d.png"),

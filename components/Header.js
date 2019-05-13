@@ -1,46 +1,50 @@
 import React from "react";
-import { StyleSheet, View, Image, Dimensions } from "react-native";
+import styled from "styled-components";
 //components
-import { LogoText, SecondaryText } from "../components/StyledText";
 import Layout from "../constants/Layout";
 
 const Header = () => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../assets/images/logo.png")}
-        style={styles.logo}
-      />
-      <LogoText>FindWeatherApp</LogoText>
-      <SecondaryText style={styles.description}>
+    <Wrapper>
+      <Logo source={require("../assets/images/logo.png")} />
+      <Headline>FindWeatherApp</Headline>
+      <Description>
         Find your local temperature, five day forecast, conditions and more
         information, fast, simple and easy!
-      </SecondaryText>
-    </View>
+      </Description>
+    </Wrapper>
   );
 };
 
 const { window } = Layout;
 
-const styles = StyleSheet.create({
-  container: {
-    paddingBottom: 20,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "white",
-    backgroundColor: "transparent",
-    width: window.width,
-    marginBottom: 20
-  },
-  logo: {
-    width: 100,
-    height: 100
-  },
-  description: {
-    width: window.width - 90
-  }
-});
+const Wrapper = styled.View`
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-color: white;
+  background-color: transparent;
+  width: ${window.width};
+`;
+
+const Headline = styled.Text`
+  color: white;
+  font-size: 32px;
+  font-family: "Galada-regular";
+`;
+
+const Logo = styled.Image`
+  width: 100px;
+  height: 100px;
+`;
+
+const Description = styled.Text`
+  font-size: 13px;
+  width: ${window.width - 90};
+  text-align: center;
+  color: white;
+`;
 
 export default Header;

@@ -82,6 +82,7 @@ class GlobalState extends Component {
         ],
         error: null
       });
+      // navigate to weather screen
       NavigationService.navigate("Weather");
     }
     //if imput is empty

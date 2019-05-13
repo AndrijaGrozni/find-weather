@@ -1,45 +1,40 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import styled from "styled-components";
 //components
-import Weather from "../components/Weather";
+import CurrentWeather from "../components/CurrentWeather";
 import Forecast from "../components/Forecast";
 import WeatherContext from "../context/weather-context";
+import Background from "../components/Background";
 
 export default class WeatherScreen extends React.Component {
   static navigationOptions = {
-    title: "Weather"
+    title: "Weather for"
   };
 
   render() {
     return (
       <WeatherContext.Consumer>
         {context => (
-          <React.Fragment>
+          <Background>
             {context.success && (
-              <ScrollView
-                style={styles.container}
-                contentContainerStyle={styles.contentContainer}
+              <WrapperScroll
+                contentContainerStyle={{ paddingTop: 30, paddingBottom: 50 }}
               >
-                <Weather />
+                <CurrentWeather />
                 {context.forecasts.map((forecast, index) => {
                   return <Forecast key={index} {...forecast} />;
                 })}
-              </ScrollView>
+              </WrapperScroll>
             )}
-          </React.Fragment>
+          </Background>
         )}
       </WeatherContext.Consumer>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: "#4C86A8"
-  },
-  contentContainer: {
-    paddingTop: 30
-  }
-});
+const WrapperScroll = styled.ScrollView`
+  flex: 1;
+  padding-left: 15px;
+  padding-right: 15px;
+`;

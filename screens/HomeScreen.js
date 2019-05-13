@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 //components
 import Header from "../components/Header";
 import Search from "../components/Search";
+import Background from "../components/Background";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,10 +12,12 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Header />
-        <Search />
-      </View>
+      <Background>
+        <View style={styles.container}>
+          <Header />
+          <Search />
+        </View>
+      </Background>
     );
   }
 }
@@ -22,7 +25,6 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4C86A8",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"

@@ -1,71 +1,78 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import styled from "styled-components";
 //shared
 import IMAGES from "../constants/WeatherIcons";
 
 const Forecast = ({ day, description, icon, temperature }) => {
   return (
-    <View style={styles.wrapper}>
-      <View style={styles.left}>
-        <Text style={styles.day}>{day}</Text>
-        <Text style={styles.description}>{description}</Text>
-      </View>
-      <View style={styles.right}>
-        <Image style={styles.icon} source={IMAGES[icon]} />
-        <Text style={styles.temperature}>{Math.round(temperature)}°</Text>
-      </View>
-    </View>
+    <Wrapper>
+      <Left>
+        <Day>{day}</Day>
+        <Description>{description}</Description>
+      </Left>
+      <Right>
+        <Icon source={IMAGES[icon]} />
+        <Temperature>{Math.round(temperature)}°</Temperature>
+      </Right>
+    </Wrapper>
   );
 };
 
-const styles = StyleSheet.create({
-  wrapper: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.35)",
-    color: "white",
-    paddingVertical: 35,
-    paddingHorizontal: 10,
-    borderRadius: 30,
-    marginTop: 15
-  },
-  left: {
-    display: "flex",
-    flex: 2,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    flexDirection: "column"
-  },
-  day: {
-    display: "flex",
-    flex: 2,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    flexDirection: "column"
-  },
-  description: {
-    margin: 0,
-    fontSize: 13,
-    color: "white"
-  },
-  right: {
-    display: "flex",
-    alignItems: "flex-start",
-    justifyContent: "flex-end",
-    flexDirection: "row",
-    flex: 1,
-    paddingLeft: 40
-  },
-  icon: {
-    width: 40,
-    height: 40
-  },
-  temperature: {
-    fontSize: 32,
-    color: "white",
-    marginLeft: 10
-  }
-});
+// styles
+const Wrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 10px 35px;
+  border-radius: 30px;
+  margin-top: 15px;
+  letter-spacing: 2px;
+`;
+
+const Day = styled.Text`
+  text-align: left;
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  color: white;
+`;
+
+const Description = styled.Text`
+  margin: 0;
+  font-size: 13px;
+  color: white;
+`;
+
+const Left = styled.View`
+  display: flex;
+  flex: 2;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+`;
+
+const Right = styled.View`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-between;
+  padding-left: 40px;
+`;
+
+const Icon = styled.Image`
+  width: 40px;
+  height: 40px;
+`;
+
+const Temperature = styled.Text`
+  font-size: 32px;
+  color: white;
+  margin-left: 10px;
+`;
 
 export default Forecast;
