@@ -1,5 +1,8 @@
 import React from "react";
-import { Platform, StatusBar, StyleSheet, View } from "react-native";
+import { Platform, StatusBar } from "react-native";
+import styled from "styled-components";
+
+//components
 import NavigationService from "./navigation/NavigationService";
 import AppNavigator from "./navigation/AppNavigator";
 import Loader from "./Loader";
@@ -16,14 +19,14 @@ export default class App extends React.Component {
     } else {
       return (
         <GlobalState>
-          <View style={styles.container}>
+          <Wrapper>
             {Platform.OS === "ios" && <StatusBar barStyle='default' />}
             <AppNavigator
               ref={navigatorRef => {
                 NavigationService.setTopLevelNavigator(navigatorRef);
               }}
             />
-          </View>
+          </Wrapper>
         </GlobalState>
       );
     }
@@ -34,9 +37,7 @@ export default class App extends React.Component {
   };
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#4C86A8"
-  }
-});
+const Wrapper = styled.View`
+  flex: 1;
+  background-color: #4c86a8;
+`;

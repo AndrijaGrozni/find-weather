@@ -27,6 +27,7 @@ const Wrapper = styled.View`
   border-color: white;
   background-color: transparent;
   width: ${window.width};
+  margin-top: -50px;
 `;
 
 const Headline = styled.Text`

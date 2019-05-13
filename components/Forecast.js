@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 //shared
 import IMAGES from "../constants/WeatherIcons";
+import Moment from "moment";
 
 const Forecast = ({ day, description, icon, temperature }) => {
+  Moment.locale("en");
+
   return (
     <Wrapper>
       <Left>
-        <Day>{day}</Day>
+        <Day>{Moment(day).format("dddd")}</Day>
         <Description>{description}</Description>
       </Left>
       <Right>
