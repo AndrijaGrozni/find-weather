@@ -9,7 +9,7 @@ import HourlyForecast from "../components/HourlyForecast";
 
 export default class WeatherScreen extends React.Component {
   static navigationOptions = {
-    title: "Weather for"
+    header: null
   };
 
   render() {
@@ -20,8 +20,8 @@ export default class WeatherScreen extends React.Component {
             {context.success && (
               <WrapperScroll
                 contentContainerStyle={{
-                  paddingTop: 30,
-                  paddingBottom: 50
+                  paddingTop: 40,
+                  paddingBottom: 70
                 }}
               >
                 <CurrentWeather />
@@ -38,4 +38,6 @@ export default class WeatherScreen extends React.Component {
 
 const WrapperScroll = styled.ScrollView`
   flex: 1;
+  padding-top: 40px;
+  padding-bottom: 10px;
 `;

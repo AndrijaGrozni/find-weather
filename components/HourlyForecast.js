@@ -39,11 +39,11 @@ const Box = styled.View`
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
-  padding: 2px;
+  padding: 4px 2px;
 `;
 
 const Time = styled.Text`
-  font-size: 16px;
+  font-size: 17px;
   color: white;
 `;
 
@@ -54,7 +54,7 @@ const Icon = styled.Image`
 `;
 
 const Temperature = styled.Text`
-  font-size: 16px;
+  font-size: 17px;
   color: white;
 `;
 
