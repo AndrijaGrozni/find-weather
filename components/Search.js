@@ -9,7 +9,12 @@ const Search = () => {
     <WeatherContext.Consumer>
       {context => (
         <Container>
-          <Input onChangeText={context._onInput} placeholder='City name' />
+          <Input
+            onChangeText={context._onInput}
+            placeholder='City name'
+            returnKeyType='done'
+            textContentType='addressCity'
+          />
           <SearchButton onPress={context._getWeather}>
             <Icon source={require("../assets/images/search.png")} />
           </SearchButton>

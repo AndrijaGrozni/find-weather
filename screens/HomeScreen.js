@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
 import styled from "styled-components";
+import { Platform } from "react-native";
 //components
 import Header from "../components/Header";
 import Search from "../components/Search";
@@ -14,7 +14,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Background>
-        <Wrapper>
+        <Wrapper behavior={Platform.OS === "ios" ? "padding" : undefined}>
           <Header />
           <Search />
         </Wrapper>
@@ -23,7 +23,7 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-const Wrapper = styled.View`
+const Wrapper = styled.KeyboardAvoidingView`
   flex: 1;
   display: flex;
   justify-content: center;
