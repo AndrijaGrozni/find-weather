@@ -13,7 +13,7 @@ const Search = () => {
           <SearchButton onPress={context._getWeather}>
             <Icon source={require("../assets/images/search.png")} />
           </SearchButton>
-          {context.error && <Error>{context.error}</Error>}
+          <Error>{context.error}</Error>
         </Container>
       )}
     </WeatherContext.Consumer>

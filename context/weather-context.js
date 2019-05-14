@@ -6,8 +6,9 @@ export default React.createContext({
   cityName: "",
   success: false,
   today: {},
+  hourly: [],
   forecasts: [],
-  error: null,
   _getWeather: () => {},
-  _onInput: e => {}
+  _onInput: e => {},
+  weatherClick: () => {}
 });
