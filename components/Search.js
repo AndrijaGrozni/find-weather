@@ -49,7 +49,7 @@ const Input = styled.TextInput`
 
 const SearchButton = styled.TouchableOpacity`
   position: absolute;
-  left: ${window.width - 100};
+  left: ${window.width - 101};
   top: 20;
   width: 40px;
   height: 40px;

@@ -7,7 +7,11 @@ import NavigationService from "../navigation/NavigationService";
 
 const NoWeather = () => (
   <Wrapper>
-    <Headline>Go back on find screen and search for a city name</Headline>
+    <Headline>There is no selected location</Headline>
+    <Description>
+      Go back on find screen and search for a city name. Weather will be shown
+      here.
+    </Description>
     <Button onPress={() => NavigationService.navigate("Home")}>
       <Ionicons
         size={23}
@@ -29,10 +33,19 @@ const Wrapper = styled.View`
 `;
 
 const Headline = styled.Text`
+  font-size: 18px;
   color: white;
   width: ${window.width - 120};
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+`;
+
+const Description = styled.Text`
+  color: white;
+  width: ${window.width - 120};
+  text-align: center;
+  margin-bottom: 40px;
 `;
 
 const Button = styled.TouchableOpacity`
