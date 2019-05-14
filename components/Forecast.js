@@ -13,6 +13,7 @@ const Forecast = () => {
     <WeatherContext.Consumer>
       {context => (
         <Wrapper>
+          <Headline>weather next days</Headline>
           {context.forecasts.map((forecast, index) => (
             <Box key={index}>
               <Left>
@@ -40,6 +41,16 @@ const Wrapper = styled.View`
   align-items: center;
 `;
 
+const Headline = styled.Text`
+  color: white;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 20px 0 0 15px;
+  border-bottom-width: 1px;
+  border-bottom-color: white;
+  width: 100%;
+`;
+
 const Box = styled.View`
   width: ${window.width - 30};
   display: flex;
@@ -49,7 +60,7 @@ const Box = styled.View`
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
 `;
 
 const Day = styled.Text`

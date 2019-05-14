@@ -10,15 +10,18 @@ const HourlyForecast = () => {
   return (
     <WeatherContext.Consumer>
       {context => (
-        <Wrapper horizontal={true} showsHorizontalScrollIndicator={false}>
-          {context.hourly.map((item, index) => (
-            <Box key={index}>
-              <Time>{Moment(item.time).format("HH")}h</Time>
-              <Icon source={IMAGES[item.icon]} />
-              <Temperature>{Math.round(item.temperature)}°</Temperature>
-            </Box>
-          ))}
-        </Wrapper>
+        <React.Fragment>
+          <Headline>weather next hours</Headline>
+          <Wrapper horizontal={true} showsHorizontalScrollIndicator={false}>
+            {context.hourly.map((item, index) => (
+              <Box key={index}>
+                <Time>{Moment(item.time).format("HH")}h</Time>
+                <Icon source={IMAGES[item.icon]} />
+                <Temperature>{Math.round(item.temperature)}°</Temperature>
+              </Box>
+            ))}
+          </Wrapper>
+        </React.Fragment>
       )}
     </WeatherContext.Consumer>
   );
@@ -27,12 +30,22 @@ const HourlyForecast = () => {
 const Wrapper = styled.ScrollView`
   flex: 1;
   width: 100%;
-  padding: 15px 15px 0 15px;
+  padding: 10px 15px 0 15px;
+`;
+
+const Headline = styled.Text`
+  color: white;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 20px 0 0 15px;
+  border-bottom-width: 1px;
+  border-bottom-color: white;
+  width: 100%;
 `;
 
 const Box = styled.View`
-  width: 68px;
-  height: 100px;
+  width: 70px;
+  height: 110px;
   background-color: rgba(255, 255, 255, 0.25);
   margin-right: 10px;
   display: flex;
