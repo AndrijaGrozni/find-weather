@@ -9,8 +9,8 @@ const Header = () => {
       <Logo source={require("../assets/images/logo.png")} />
       <Headline>FindWeatherApp</Headline>
       <Description>
-        Find your local temperature, five day forecast, conditions and more
-        information, fast, simple and easy!
+        Find your local temperature, hourly and daily forecast, conditions and
+        more.
       </Description>
     </Wrapper>
   );
@@ -43,6 +43,7 @@ const Logo = styled.Image`
 
 const Description = styled.Text`
   font-size: 13px;
+  line-height: 19px;
   width: ${window.width - 90};
   text-align: center;
   color: white;

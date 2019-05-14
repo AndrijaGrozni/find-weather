@@ -46,6 +46,8 @@ const Description = styled.Text`
   width: ${window.width - 120};
   text-align: center;
   margin-bottom: 40px;
+  font-size: 13px;
+  line-height: 19px;
 `;
 
 const Button = styled.TouchableOpacity`
