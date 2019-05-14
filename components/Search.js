@@ -46,6 +46,7 @@ const SearchButton = styled.TouchableOpacity`
   position: absolute;
   left: ${window.width - 100};
   top: 20;
+  width: 40px;
   height: 40px;
   border-radius: 50;
   padding: 12px 10px;

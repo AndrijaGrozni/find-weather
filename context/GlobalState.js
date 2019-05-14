@@ -165,7 +165,9 @@ class GlobalState extends Component {
             },
             () => {
               // navigate to weather screen
-              NavigationService.navigate("Weather");
+              NavigationService.navigate("Weather", {
+                ...this.state
+              });
             }
           );
         }

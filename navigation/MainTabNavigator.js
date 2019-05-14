@@ -11,8 +11,7 @@ import WeatherScreen from "../screens/WeatherScreen";
 
 //home tab
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-  Weather: WeatherScreen
+  Home: HomeScreen
 });
 HomeStack.navigationOptions = {
   tabBarLabel: "Find",
@@ -24,20 +23,21 @@ HomeStack.navigationOptions = {
   )
 };
 
-// //weather tab
-// const WeatherStack = createStackNavigator({
-//   Weather: WeatherScreen
-// });
-// WeatherStack.navigationOptions = {
-//   tabBarLabel: "Weather",
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={Platform.OS === "ios" ? "ios-cloud" : "md-cloud"}
-//     />
-//   )
-// };
+//weather tab
+const WeatherStack = createStackNavigator({
+  Weather: WeatherScreen
+});
+WeatherStack.navigationOptions = {
+  tabBarLabel: "Weather",
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === "ios" ? "ios-cloud" : "md-cloud"}
+    />
+  )
+};
 
 export default createBottomTabNavigator({
-  HomeStack
+  HomeStack,
+  WeatherStack
 });

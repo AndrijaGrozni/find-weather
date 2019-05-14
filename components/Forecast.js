@@ -57,7 +57,7 @@ const Day = styled.Text`
   font-size: 20px;
   margin: 0;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   color: white;
 `;
 

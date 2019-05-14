@@ -25,11 +25,11 @@ const CurrentWeather = () => {
               <Stats>
                 <Column>
                   <Details>
-                    <DetailsText>Humidity: </DetailsText>
+                    <DetailsText>humidity: </DetailsText>
                     <DetailsHeadline>{context.today.humidity}%</DetailsHeadline>
                   </Details>
                   <Details>
-                    <DetailsText>Pressure: </DetailsText>
+                    <DetailsText>pressure: </DetailsText>
                     <DetailsHeadline>
                       {context.today.pressure} hpa
                     </DetailsHeadline>
@@ -37,13 +37,13 @@ const CurrentWeather = () => {
                 </Column>
                 <Column>
                   <Details>
-                    <DetailsText>Wind speed: </DetailsText>
+                    <DetailsText>wind speed: </DetailsText>
                     <DetailsHeadline>
                       {context.today.windSpeed} m/h
                     </DetailsHeadline>
                   </Details>
                   <Details>
-                    <DetailsText>Wind degree: </DetailsText>
+                    <DetailsText>wind degree: </DetailsText>
                     <DetailsHeadline>
                       {Math.round(context.today.windDeg)}
                     </DetailsHeadline>
