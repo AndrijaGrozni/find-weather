@@ -38,8 +38,6 @@ const Headline = styled.Text`
   font-size: 10px;
   text-transform: uppercase;
   padding: 20px 0 0 15px;
-  border-bottom-width: 1px;
-  border-bottom-color: white;
   width: 100%;
 `;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
 import styled from "styled-components";
 //components
 import CurrentWeather from "../components/CurrentWeather";
+import CurrentWeatherDetails from "../components/CurrentWeatherDetails";
 import Forecast from "../components/Forecast";
 import WeatherContext from "../context/weather-context";
 import Background from "../components/Background";
@@ -28,6 +28,7 @@ export default class WeatherScreen extends React.Component {
                 }}
               >
                 <CurrentWeather />
+                <CurrentWeatherDetails />
                 <HourlyForecast />
                 <Forecast />
               </WrapperScroll>
