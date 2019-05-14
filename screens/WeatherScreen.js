@@ -8,6 +8,7 @@ import WeatherContext from "../context/weather-context";
 import Background from "../components/Background";
 import HourlyForecast from "../components/HourlyForecast";
 import NoWeather from "../components/NoWeather";
+import FadeIn from "../animations/FadeIn";
 
 export default class WeatherScreen extends React.Component {
   static navigationOptions = {
@@ -21,17 +22,19 @@ export default class WeatherScreen extends React.Component {
           <Background>
             {!context.success && <NoWeather />}
             {context.success && (
-              <WrapperScroll
-                contentContainerStyle={{
-                  paddingTop: 40,
-                  paddingBottom: 70
-                }}
-              >
-                <CurrentWeather />
-                <CurrentWeatherDetails />
-                <HourlyForecast />
-                <Forecast />
-              </WrapperScroll>
+              <FadeIn duration={300}>
+                <WrapperScroll
+                  contentContainerStyle={{
+                    paddingTop: 40,
+                    paddingBottom: 70
+                  }}
+                >
+                  <CurrentWeather />
+                  <CurrentWeatherDetails />
+                  <HourlyForecast />
+                  <Forecast />
+                </WrapperScroll>
+              </FadeIn>
             )}
           </Background>
         )}

@@ -4,22 +4,25 @@ import styled from "styled-components";
 import { Ionicons } from "@expo/vector-icons";
 import Layout from "../constants/Layout";
 import NavigationService from "../navigation/NavigationService";
+import FadeIn from "../animations/FadeIn";
 
 const NoWeather = () => (
-  <Wrapper>
-    <Headline>There is no selected location</Headline>
-    <Description>
-      Go back on find screen and search for a city name. Weather will be shown
-      here.
-    </Description>
-    <Button onPress={() => NavigationService.navigate("Home")}>
-      <Ionicons
-        size={23}
-        color='white'
-        name={Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back"}
-      />
-    </Button>
-  </Wrapper>
+  <FadeIn duration={300}>
+    <Wrapper>
+      <Headline>There is no selected location</Headline>
+      <Description>
+        Go back on find screen and search for a city name. Weather will be shown
+        here.
+      </Description>
+      <Button onPress={() => NavigationService.navigate("Home")}>
+        <Ionicons
+          size={23}
+          color='white'
+          name={Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back"}
+        />
+      </Button>
+    </Wrapper>
+  </FadeIn>
 );
 
 const { window } = Layout;
