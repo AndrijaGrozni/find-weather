@@ -15,6 +15,9 @@ const HomeStack = createStackNavigator({
 });
 HomeStack.navigationOptions = {
   tabBarLabel: "Find",
+  tabBarOptions: {
+    activeTintColor: "#00afbe"
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -29,6 +32,9 @@ const WeatherStack = createStackNavigator({
 });
 WeatherStack.navigationOptions = {
   tabBarLabel: "Weather",
+  tabBarOptions: {
+    activeTintColor: "#00afbe"
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
