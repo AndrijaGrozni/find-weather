@@ -28,6 +28,7 @@ const Wrapper = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 10px;
 `;
 
 const City = styled.Text`
