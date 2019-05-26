@@ -31,7 +31,7 @@ export default class WeatherScreen extends React.Component {
                 >
                   <CurrentWeather />
                   <CurrentWeatherDetails />
-                  <HourlyForecast />
+                  {/* <HourlyForecast /> */}
                   <Forecast />
                 </WrapperScroll>
               </FadeIn>
